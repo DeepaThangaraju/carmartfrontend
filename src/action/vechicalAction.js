@@ -2,7 +2,7 @@ import axios from "axios";
 export const vechicalAction = (keyword='',pageNumber='') => async (dispatch) => {
   try {
     dispatch({ type: "VECHICAL_LIST_REQUEST" });
-    const { data } = await axios.get(`/api/vechicals?keyword=${keyword}&pageNumber=${pageNumber}`);
+    const { data } = await axios.get(`https://carmartapp.herokuapp.com/api/vechicals?keyword=${keyword}&pageNumber=${pageNumber}`);
     dispatch({ type: "VECHICAL_LIST_SUCCESS", payload: data });
   } catch (error) {
     dispatch({
