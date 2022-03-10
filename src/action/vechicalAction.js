@@ -18,7 +18,7 @@ export const vechicalAction = (keyword='',pageNumber='') => async (dispatch) => 
 export const vechicalDetailsAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: "VECHICAL_DETAIL_REQUEST" });
-    const { data } = await axios.get(`/api/vechicals/${id}`);
+    const { data } = await axios.get(`https://carmartapp.herokuapp.com/api/vechicals/${id}`);
     dispatch({ type: "VECHICAL_DETAIL_SUCCESS", payload: data });
   } catch (error) {
     dispatch({
@@ -44,7 +44,7 @@ export const deleteVechical = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`/api/vechicals/${id}`, config);
+    await axios.delete(`https://carmartapp.herokuapp.com/api/vechicals/${id}`, config);
 
     dispatch({ type: "VECHICAL_DELETE_SUCCESS" });
   } catch (error) {
@@ -71,7 +71,7 @@ export const createVechical = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/vechicals`, {}, config);
+    const { data } = await axios.post(`https://carmartapp.herokuapp.com/api/vechicals`, {}, config);
 
     dispatch({ type: "VECHICAL_CREATE_SUCCESS", payload: data });
   } catch (error) {
@@ -100,7 +100,7 @@ export const updateVechical = (vechical) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/vechicals/${vechical._id}`,
+      `https://carmartapp.herokuapp.com/api/vechicals/${vechical._id}`,
       vechical,
       config
     );
@@ -132,7 +132,7 @@ export const createVechicalReview =
         },
       };
 
-      await axios.post(`/api/vechicals/${vechicalId}/reviews`, review, config);
+      await axios.post(`https://carmartapp.herokuapp.com/api/vechicals/${vechicalId}/reviews`, review, config);
 
       dispatch({ type: "VECHICAL_CREATE_REVIEW_SUCCESS" });
     } catch (error) {
@@ -150,7 +150,7 @@ export const createVechicalReview =
   export const topVechical = () => async (dispatch) => {
     try {
       dispatch({ type: "VECHICAL_TOP_REQUEST" });
-      const { data } = await axios.get(`/api/vechicals/top`);
+      const { data } = await axios.get(`https://carmartapp.herokuapp.com/api/vechicals/top`);
       dispatch({ type: "VECHICAL_TOP_SUCCESS", payload: data });
     } catch (error) {
       dispatch({

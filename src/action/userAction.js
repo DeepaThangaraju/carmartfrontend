@@ -45,7 +45,7 @@ export const Register = (name,email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "/api/users",
+      "https://carmartapp.herokuapp.com/api/users",
       { name,email, password },
       config
     );
@@ -82,7 +82,7 @@ export const getUserDetails = (id) => async (dispatch,getState) => {
       },
     };
     const { data } = await axios.get(
-      `/api/users/${id}`,
+      `https://carmartapp.herokuapp.com/api/users/${id}`,
       config
     );
     dispatch({
@@ -113,7 +113,7 @@ export const updateProfile = (user) => async (dispatch,getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/users/profile`,
+      `https://carmartapp.herokuapp.com/api/users/profile`,
       user,
       config
     );
@@ -144,7 +144,7 @@ export const listUsers = () => async (dispatch,getState) => {
       },
     };
     const { data } = await axios.get(
-      `/api/users`,
+      `https://carmartapp.herokuapp.com/api/users`,
       config
     );
     dispatch({
@@ -174,7 +174,7 @@ export const deleteUser = (id) => async (dispatch,getState) => {
       },
     };
     await axios.delete(
-      `/api/users/${id}`,
+      `https://carmartapp.herokuapp.com/api/users/${id}`,
       config
     );
     dispatch({
@@ -205,7 +205,7 @@ export const updateUser = (user) => async (dispatch,getState) => {
       },
     };
     const {data}=await axios.put(
-      `/api/users/${user._id}`,
+      `https://carmartapp.herokuapp.com/api/users/${user._id}`,
       user,
       config
     );

@@ -12,7 +12,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`/api/orders`, order, config);
+    const { data } = await axios.post(`https://carmartapp.herokuapp.com/api/orders`, order, config);
     dispatch({
       type: "ORDER_CREATE_SUCCESS",
       payload: data,
@@ -40,7 +40,7 @@ export const orderDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/orders/${id}`, config);
+    const { data } = await axios.get(`https://carmartapp.herokuapp.com/api/orders/${id}`, config);
     dispatch({
       type: "ORDER_DETAILS_SUCCESS",
       payload: data,
@@ -70,7 +70,7 @@ export const payOrder =
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-      const { data } = await axios.put(`/api/orders/${orderId}/pay`, config);
+      const { data } = await axios.put(`https://carmartapp.herokuapp.com/api/orders/${orderId}/pay`, config);
       dispatch({
         type: "ORDER_PAY_SUCCESS",
         payload: data,
@@ -100,7 +100,7 @@ export const payOrder =
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-      const { data } = await axios.put(`/api/orders/${order._id}/deliver`,{}, config);
+      const { data } = await axios.put(`https://carmartapp.herokuapp.com/api/orders/${order._id}/deliver`,{}, config);
       dispatch({
         type: "ORDER_PAY_SUCCESS",
         payload: data,
@@ -128,7 +128,7 @@ export const orderList = (order) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/orders`, config);
+    const { data } = await axios.get(`https://carmartapp.herokuapp.com/api/orders`, config);
     dispatch({
       type: "ORDER_LIST_SUCCESS",
       payload: data,
