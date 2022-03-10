@@ -9,7 +9,7 @@ export const userLogin = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "https://carmartapp.herokuapp.com/api/users/login",
+      "/api/users/login",
       { email, password },
       config
     );
